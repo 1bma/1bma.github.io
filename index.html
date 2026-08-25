@@ -10,10 +10,10 @@
 <meta property="og:type" content="website">
 <style>
   :root {
-    --bg: #0b0d10;
-    --bg-alt: #12151a;
-    --border: #23272e;
-    --text: #e6e8eb;
+    --bg: #000000;
+    --bg-alt: #0a0a0a;
+    --border: #1f1f1f;
+    --text: #f2f2f2;
     --text-dim: #8b929c;
     --accent: #4f8cff;
     --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
@@ -23,10 +23,34 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
   }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  #particles {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .particle {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: floatUp linear infinite;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
   header {
     padding: 90px 0 50px;
@@ -136,6 +160,7 @@
 </head>
 <body>
 
+<div id="particles"></div>
 <div class="wrap">
   <header>
     <div class="tag">// electrical engineering student</div>
@@ -149,6 +174,13 @@
       <a href="https://github.com/1bma" target="_blank">GitHub</a>
       <a href="https://linkedin.com/in/ubma" target="_blank">LinkedIn</a>
       <a href="https://t.me/uubma" target="_blank">Telegram</a>
+      <a href="https://instagram.com/u.bma" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/@u.bma" target="_blank">TikTok</a>
+      <a href="https://twitter.com/u.bma" target="_blank">Twitter</a>
+      <a href="https://snapchat.com/add/u.bma" target="_blank">Snapchat</a>
+      <a href="https://wa.me/u.bma" target="_blank">WhatsApp</a>
+      <a href="https://facebook.com/03bma" target="_blank">Facebook</a>
+      <a href="https://discord.com/users/u.bma" target="_blank">Discord</a>
       <a href="mailto:Mhmdamnboutaleb@gmail.com">Email</a>
     </div>
   </header>
@@ -172,11 +204,7 @@
     <h2>Education</h2>
     <div class="edu-item">
       <div class="title">Ingénieur d'État en Électrotechnique — Réseaux Électriques</div>
-      <div class="meta">Université Saad Dahleb Blida 1 · 2023 – 2029 (expected)</div>
-    </div>
-    <div class="edu-item">
-      <div class="title">Baccalauréat, Génie Électrique (Taqni Riyadhi)</div>
-      <div class="meta">2023 · 10.06/20</div>
+      <div class="meta">Université Saad Dahleb Blida 1</div>
     </div>
   </section>
 
@@ -215,5 +243,21 @@
   </footer>
 </div>
 
+<script>
+  const container = document.getElementById('particles');
+  const count = 45;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 3 + 1;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.top = Math.random() * 100 + 100 + 'vh';
+    p.style.animationDuration = (Math.random() * 15 + 12) + 's';
+    p.style.animationDelay = (Math.random() * 15) + 's';
+    container.appendChild(p);
+  }
+</script>
 </body>
 </html>
