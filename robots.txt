@@ -1,1 +1,5 @@
-User-agent: * Allow: / Sitemap: https://1bma.github.io/sitemap.xml 
+User-agent: * 
+Allow: / 
+
+Sitemap: 
+https://1bma.github.io/sitemap.xml 
